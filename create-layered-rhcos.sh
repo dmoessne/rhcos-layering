@@ -18,7 +18,7 @@ build () {
    for TAG in "${USED_TAGS[@]}";do
        echo -n "${TAG} : "
        RHCOS_VER=`oc adm release info quay.io/openshift-release-dev/ocp-release:${MAJOR}.${MINOR}.${TAG}-x86_64 --image-for=rhel-coreos` >&/dev/null
-       podman build -t ${QUAY_DEST}:${MAJOR}.${MINOR}.${TAG} --build-arg RHCOS_VER=${RHCOS_VER}  -f ${CONT_FILE} >&/dev/null 
+       podman build --network host -t ${QUAY_DEST}:${MAJOR}.${MINOR}.${TAG} --build-arg RHCOS_VER=${RHCOS_VER}  -f ${CONT_FILE} >&/dev/null 
        if [ $? -ne 0 ]
        then
          echo "something went wrong with build of ${TAG}"
