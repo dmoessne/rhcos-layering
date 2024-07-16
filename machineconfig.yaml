@@ -1,0 +1,8 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  labels:
+    machineconfiguration.openshift.io/role: <master|worker>
+  name: os-layer-custom-<master|worker>-<case>
+spec:
+  osImageURL: <your-registry/path/to/image>/rhocs-layered-03733733:4.14.<tag_matching_your_cluster_version>
