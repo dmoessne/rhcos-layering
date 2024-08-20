@@ -2,7 +2,7 @@ apiVersion: machineconfiguration.openshift.io/v1
 kind: MachineConfig
 metadata:
   labels:
-    machineconfiguration.openshift.io/role: <master|worker>
-  name: os-layer-custom-<master|worker>-<case>
+    machineconfiguration.openshift.io/role: master
+  name: os-layer-custom-master-rhel46814
 spec:
-  osImageURL: <your-registry/path/to/image>/rhocs-layered-03733733:4.14.<tag_matching_your_cluster_version>
+  osImageURL: quay.io/dmoessne/rhel-46814-bisect:4.16.5-8
