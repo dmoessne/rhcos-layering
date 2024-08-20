@@ -14,4 +14,5 @@ How to use this:
    - your registry Destination (`QUAY_DEST=`) and login secret (`POD_LOGIN=`) to push the created image(s) to 
    - additional tag to add (`QUAY_TAG=`
  - after having this done, kick of the create script (see help to choose just building (`b`), pushing (`p`)or both (`a`))
+ - once the image(s) are successfully pushed to the registry you can adjust `machineconfig.yaml` accordingly and apply it to your cluster (**mind** that it will reboot)
 
