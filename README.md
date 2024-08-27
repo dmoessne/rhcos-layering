@@ -7,7 +7,10 @@ A web server providing access to the packages to be installed on top of an exist
 How to use this:
  - a registry to push the images to (in this example quay)
  - put needed packages on a web server the system running the build has access to 
- - adjust the `Containerfile` accordingly (web server address, packages, additional packages may be needed, check errors in build process)
+ - adjust the `Containerfile` accordingly
+   -  (web server address, packages, additional packages may be needed, check errors in build process)
+   - `Containerfile` is there for just building a layered RHCOS image based on a different kernel 
+   - `Containerfile-build` is an example for packages needed to also build drivers with the image 
  - adijust the variables at the beginning of `create-layered-rhcos.sh`, e.g. 
    - RHCOS version you want to build the image(s) (`USED_TAGS=`, `MAJOR=`, `MINOR=`)
      - `USED_TAGS=` is used as the z-stream you want to build (see your current cluster version) and can be an array to build and push for multiple z-streams

@@ -1,14 +1,5 @@
 ARG RHCOS_VER
 FROM ${RHCOS_VER}
-# Env
-ENV ADD_RPM="http://localhost/patch/kernel-5.14.0-312.bisect_v8.el9_4.x86_64.rpm \
-             http://localhost/patch/kernel-core-5.14.0-312.bisect_v8.el9_4.x86_64.rpm \
-             http://localhost/patch/kernel-devel-5.14.0-312.bisect_v8.el9_4.x86_64.rpm \
-             http://localhost/patch/kernel-headers-5.14.0-312.bisect_v8.el9_4.x86_64.rpm \
-             http://localhost/patch/kernel-modules-5.14.0-312.bisect_v8.el9_4.x86_64.rpm \
-             http://localhost/patch/kernel-modules-core-5.14.0-312.bisect_v8.el9_4.x86_64.rpm \
-             http://localhost/patch/kernel-modules-extra-5.14.0-312.bisect_v8.el9_4.x86_64.rpm \
-             http://localhost/patch/kernel-modules-internal-5.14.0-312.bisect_v8.el9_4.x86_64.rpm"
-RUN rpm-ostree override replace ${ADD_RPM} && \
+RUN rpm-ostree override replace  http://localhost/patch/kernel-{,core-,modules-,modules-core-,modules-extra-}5.14.0-332.bisect_v12_good.el9_4.x86_64.rpm && \
     rpm-ostree cleanup -m && \
     ostree container commit
