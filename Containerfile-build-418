@@ -1,6 +1,6 @@
 ARG RHCOS_VER
 FROM ${RHCOS_VER}
-RUN rpm-ostree uninstall kernel && \ 
-    rpm-ostree override replace http://localhost/patch/kernel-{core-,devel-,headers-,modules-,modules-core-,modules-extra-,modules-internal-}5.14.0-427.62.1.rhel83455_cpuset.el9_4.x86_64.rpm && \
+RUN rpm-ostree uninstall kernel kernel-modules-extra kernel-modules kernel-modules-core kernel-core && \
+    rpm-ostree install --enablerepo rhel-9-for-x86_64-baseos-eus-rpms --enablerepo rhel-9-for-x86_64-appstream-eus-rpms --releasever 9.4 http://localhost/patch/kernel-{core-,devel-,headers-,modules-,modules-core-,modules-extra-,modules-internal-}5.14.0-427.62.1.rhel83455_cpuset.el9_4.x86_64.rpm && \
     rpm-ostree cleanup -m && \
     ostree container commit
