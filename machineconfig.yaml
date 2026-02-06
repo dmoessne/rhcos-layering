@@ -3,6 +3,6 @@ kind: MachineConfig
 metadata:
   labels:
     machineconfiguration.openshift.io/role: master
-  name: os-layer-custom-master-rhel46814
+  name: os-layer-custom-master-rhel46814 # chage as needed/reasonable
 spec:
-  osImageURL: quay.io/dmoessne/rhel-46814-bisect:4.16.5-8
+  osImageURL: quay.io/dmoessne/rhel-46814-bisect:4.16.5-8 # adjust accordingly -> your own repo and even registry dest as well as image name coming from create-layered-rhcos.sh
