@@ -1,17 +1,19 @@
 #!/bin/bash
 # VARS
-## set tags to be build
+## Usual OCP numbering is e.g. 4.18.20
+##                             x. y. z
+## set tags to be build == z-stream releases to build for 
 #USED_TAGS=(21 22 23 24 25) 
 USED_TAGS=(5 6)
-## set major and minor version to be used
+## set major(x) and minor(y) version to be used 
 MAJOR=4
 MINOR=16
-## set destination in quay to push
+## set destination in quay to push to
 QUAY_DEST=quay.io/dmoessne/rhel-46814-bisect
 QUAY_TAG=8
-## set name of the Containerfile
+## set name of the Containerfile used to build (may vary per y-stream and if or not a up- or downgrade of a package is needed
 CONT_FILE=Containerfile
-## set location of podman login file for private repo
+## set location of podman login file for private repo to push
 POD_LOGIN="/home/dmoessne/.config/containers/dmoessne-dmoessne-quay-auth.json"
 ## VARS END
 
